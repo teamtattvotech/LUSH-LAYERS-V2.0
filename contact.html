@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lush Layers — Premium Pillows</title>
+
+  <!-- SEO META TAGS -->
+  <meta name="description" content="Lush Layers — Premium handcrafted pillows designed for comfort, support, and elegance. Explore sleep, travel, and décor collections.">
+  <meta name="keywords" content="pillows, premium pillows, orthopedic pillows, memory foam, decor cushions, travel pillows, bamboo pillow, lush layers">
+  <meta name="author" content="Lush Layers LLP">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (for social previews) -->
+  <meta property="og:title" content="Lush Layers — Premium Comfort Pillows">
+  <meta property="og:description" content="Experience luxury, comfort, and craftsmanship in every layer. Discover our premium pillow collections.">
+  <meta property="og:image" content="https://teamtattvotech.github.io/LUSH-LAYERS/assets/images/logo/logo.png">
+  <meta property="og:url" content="https://teamtattvotech.github.io/LUSH-LAYERS/">
+  <meta property="og:type" content="website">
+
+  <!-- Performance -->
+  <link rel="preload" href="assets/videos/bgvideo1.webm" as="video" type="video/webm">
+  <link rel="preload" href="assets/images/logo/logo.webp" as="image">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.webp">
+  <link rel="icon" type="image/webp" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.webp">
+  <link rel="manifest" href="assets/images/favicon_io/site.webmanifest">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP (single include) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Vanilla Tilt for 3D designs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+  <!-- Lenis for smooth scrolling -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script>
+
+  <!-- Styles (local) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 z-[999999] bg-[var(--teal)] flex flex-col items-center justify-center">
+      <div class="overflow-hidden mb-6">
+          <h1 id="preloader-text" class="text-4xl md:text-5xl font-serif text-[var(--gold)] tracking-[0.2em] uppercase translate-y-full opacity-0">Lush Layers</h1>
+      </div>
+      <div class="w-64 h-[2px] bg-[var(--cream-1)]/20 relative overflow-hidden rounded-full">
+          <div id="preloader-progress" class="absolute top-0 left-0 h-full w-0 bg-[var(--gold)] shadow-[0_0_10px_var(--gold)]"></div>
+      </div>
+  </div>
+
+<header class="w-full fixed top-0 left-0 z-50 px-4 md:px-6">
+  <div class="max-w-6xl mx-auto header-pill flex items-center justify-between relative">
+    
+    <!-- LOGO + BRAND -->
+    <a href="index.html#home" class="flex items-center gap-2 align-middle ">
+      <img 
+        src="assets/images/logo/logo.webp" 
+        alt="Lush Layers Logo" 
+        class="w-14 h-14 object-contain rounded-full border border-[rgba(15,61,62,0.06)] bg-gradient-to-br from-[#fff7e6] to-[#f3e6c2] p-1 inline-block align-middle"
+      />
+      <span class="text-base font-semibold text-[var(--teal)] font-serif md:text-lg relative top-[1px]">Lush Layers</span>
+    </a>
+
+    <nav id="desktopNav" class="hidden md:flex gap-6 items-center text-sm text-[var(--muted)]">
+      <a href="index.html#home" class="hover:underline">Home</a>
+      <a href="index.html#about" class="hover:underline">About</a>
+      <a href="index.html#collections" class="hover:underline">Collections</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a href="#contact" class="px-4 py-2 rounded-full" style="background: linear-gradient(90deg,var(--gold), #ffd991); color:var(--teal); font-weight:600;">Enquire</a>
+    </div>
+
+    <div class="md:hidden">
+      <button id="mobileToggle" class="p-1.5 rounded-md border border-transparent bg-white/50" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+        <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg id="closeIcon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-nav-overlay hidden md:hidden">
+      <nav class="flex flex-col gap-6 items-start text-lg text-[var(--muted)] font-medium">
+        <a href="index.html#home" class="hover:text-[var(--teal)]">Home</a>
+        <a href="index.html#about" class="hover:text-[var(--teal)]">About</a>
+        <a href="index.html#collections" class="hover:text-[var(--teal)]">Collections</a>
+        <a href="#contact" class="hover:text-[var(--teal)]">Contact & Support</a>
+      </nav>
+      <a href="index.html#collections" class="mt-8 px-5 py-2.5 rounded-full w-full block text-center text-base uppercase tracking-widest text-sm transition hover:scale-105" style="background: linear-gradient(90deg,var(--gold), #ffd991); color:var(--teal); font-weight:600;">Explore Collections</a>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</header>
+
+<main class="pt-24">
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="py-32 relative overflow-hidden bg-[var(--cream-1)]">
+    <!-- Decorative background element -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--gold)]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--teal)]/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center mb-16 gsap-reveal">
+         <span class="text-sm text-[var(--gold)] tracking-[0.2em] uppercase font-semibold block mb-3">Connect With Us</span>
+         <h2 class="text-4xl md:text-5xl font-serif text-[var(--teal)]">Let's Craft Your Rest</h2>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-white/50 p-8 md:p-14 grid md:grid-cols-5 gap-16 items-center gsap-reveal">
+        
+        <!-- Left: Contact Info -->
+        <div class="md:col-span-2 flex flex-col h-full justify-center">
+          <h3 class="text-3xl font-serif text-[var(--teal)] mb-6">Get in touch</h3>
+          <p class="text-base text-[var(--muted)]/80 mb-10 font-light leading-relaxed">
+            We'd love to hear from you. Whether you’re looking for product details, custom orders, or wholesale queries — our devoted team is always ready to assist you in elevating your restful space.
+          </p>
+
+          <div class="space-y-8">
+            <div class="flex items-start gap-4 group">
+              <div class="w-10 h-10 rounded-full bg-[var(--cream-1)] flex items-center justify-center shrink-0 group-hover:bg-[var(--gold)] transition-colors duration-500">
+                <svg width="18" height="18" fill="none" class="text-[var(--teal)] group-hover:text-white transition-colors duration-500" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-[var(--teal)] text-sm uppercase tracking-widest mb-1">Email</p>
+                <a href="mailto:hello@lushlayers.com" class="text-[var(--muted)] hover:text-[var(--gold)] transition-colors">hello@lushlayers.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 group">
+              <div class="w-10 h-10 rounded-full bg-[var(--cream-1)] flex items-center justify-center shrink-0 group-hover:bg-[var(--gold)] transition-colors duration-500">
+                <svg width="18" height="18" fill="none" class="text-[var(--teal)] group-hover:text-white transition-colors duration-500" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.273-3.973-6.87-6.87l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-[var(--teal)] text-sm uppercase tracking-widest mb-1">Phone</p>
+                <div class="flex flex-col">
+                  <a href="tel:+918790333399" class="text-[var(--muted)] hover:text-[var(--gold)] transition-colors">+91 8790333399</a>
+                  <a href="tel:+919133293399" class="text-[var(--muted)] hover:text-[var(--gold)] transition-colors">+91 9133293399</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 group">
+              <div class="w-10 h-10 rounded-full bg-[var(--cream-1)] flex items-center justify-center shrink-0 group-hover:bg-[var(--gold)] transition-colors duration-500">
+                <svg width="18" height="18" fill="none" class="text-[var(--teal)] group-hover:text-white transition-colors duration-500" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-[var(--teal)] text-sm uppercase tracking-widest mb-1">Address</p>
+                <p class="text-[var(--muted)] leading-relaxed">12-1-508/B/50/C Sripuri Colony,<br/>Hyderabad - 40</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="md:col-span-3">
+          <form id="contactForm" action="https://formspree.io/f/xqeyjeod" method="POST" class="bg-[var(--cream-1)]/40 rounded-3xl p-8 md:p-10 border border-[var(--teal)]/5">
+              <h4 class="text-2xl font-serif text-[var(--teal)] mb-8">Send a Message</h4>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                <!-- Name -->
+                <div class="relative group">
+                  <input type="text" name="name" id="userName" placeholder=" " required
+                    class="block w-full px-0 py-3 bg-transparent border-0 border-b border-gray-300 text-[var(--teal)] focus:ring-0 focus:border-[var(--gold)] transition duration-300 peer focus:outline-none">
+                  <label for="userName" class="absolute left-0 -top-3.5 text-xs font-semibold text-[var(--muted)]/60 transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[var(--gold)] pointer-events-none uppercase tracking-widest">Your Name</label>
+                </div>
+                <!-- Phone -->
+                <div class="relative group">
+                  <input type="tel" name="phone" id="userPhone" placeholder=" " required
+                    class="block w-full px-0 py-3 bg-transparent border-0 border-b border-gray-300 text-[var(--teal)] focus:ring-0 focus:border-[var(--gold)] transition duration-300 peer focus:outline-none">
+                  <label for="userPhone" class="absolute left-0 -top-3.5 text-xs font-semibold text-[var(--muted)]/60 transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[var(--gold)] pointer-events-none uppercase tracking-widest">Phone Number</label>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="relative group mb-10">
+                <input type="email" name="email" id="userEmail" placeholder=" " required
+                  class="block w-full px-0 py-3 bg-transparent border-0 border-b border-gray-300 text-[var(--teal)] focus:ring-0 focus:border-[var(--gold)] transition duration-300 peer focus:outline-none">
+                <label for="userEmail" class="absolute left-0 -top-3.5 text-xs font-semibold text-[var(--muted)]/60 transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[var(--gold)] pointer-events-none uppercase tracking-widest">Email Address</label>
+              </div>
+
+              <!-- Message -->
+              <div class="relative group mb-12">
+                <textarea name="message" id="userMessage" rows="3" placeholder=" " required
+                  class="block w-full px-0 py-3 bg-transparent border-0 border-b border-gray-300 text-[var(--teal)] focus:ring-0 focus:border-[var(--gold)] transition duration-300 peer resize-none focus:outline-none"></textarea>
+                <label for="userMessage" class="absolute left-0 -top-3.5 text-xs font-semibold text-[var(--muted)]/60 transition-all duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[var(--gold)] pointer-events-none uppercase tracking-widest">How can we help you?</label>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit"
+                class="w-full py-4 rounded-full text-white font-semibold text-sm tracking-widest uppercase shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl bg-[var(--teal)] hover:bg-[var(--gold)]">
+                Send Inquiry
+              </button>
+            </form>
+        </div>
+      </div>
+
+      <!-- Map Section (Added separately below contact form) -->
+      <div class="mt-24 gsap-reveal relative z-10 w-full bg-white/40 p-4 md:p-6 rounded-[2rem] shadow-sm border border-white/60 backdrop-blur-sm">
+        <div class="text-center mb-8 pt-4">
+           <span class="text-xs text-[var(--gold)] tracking-[0.2em] uppercase font-bold block mb-2">Visit Us</span>
+           <h3 class="text-3xl font-serif text-[var(--teal)]">Our Location</h3>
+        </div>
+        <div class="w-full h-80 md:h-[450px] rounded-2xl overflow-hidden shadow-inner bg-gray-100 relative group">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.005382569005!2d80.0421218!3d15.5120268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4b01076170231b%3A0x3a4477cacc32b022!2sChunduru%20%26%20Co.!5e0!3m2!1sen!2sin!4v1730890000000!5m2!1sen!2sin"
+            class="w-full h-full border-0 absolute inset-0 mix-blend-multiply opacity-90 transition-all duration-700 group-hover:mix-blend-normal group-hover:opacity-100"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="absolute inset-0 pointer-events-none rounded-2xl ring-1 ring-inset ring-black/5"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER (from index.html) ================= -->
+  <footer class="bg-[linear-gradient(180deg,#063735,#072e2d)] text-white pt-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Footer Columns -->
+      <div class="grid md:grid-cols-4 gap-8 mt-10">
+        <!-- Brand -->
+        <div>
+          <h4 class="text-lg font-bold mb-2">Lush Layers</h4>
+          <p class="text-sm text-white/80 mb-4">To redefine sleep comfort through thoughtful layering, sustainable materials, and lasting quality — creating products that support better rest and healthier living.</p>
+        </div>
+
+        <!-- About -->
+        <div>
+          <h5 class="font-semibold mb-3">Navigation</h5>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li><a href="#home" class="hover:text-white">Home</a></li>
+            <li><a href="#about" class="hover:text-white">About</a></li>
+            <li><a href="#collections" class="hover:text-white">Collections</a></li>
+            <li><a href="#contact" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h5 class="font-semibold mb-3">Services</h5>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li>Retail & Wholesale</li>
+            <li>Corporate Supply</li>
+            <li>Bulk Orders</li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h5 class="font-semibold mb-3">Contact Info</h5>
+          <p class="text-sm text-white/80 mb-2">hello@lushlayers.com</p>
+          <p class="text-sm text-white/80 mb-3">+91 8790333399<br>+91 9133293399</p>
+          <p class="text-sm text-white/80 mb-3">Registered Office: Ground Floor, Chunduru & Co.Ayinabathina Vari Veedhi Ongole -01</p>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="mt-10 border-t border-white/10 pt-6 text-xs text-white/60 flex flex-col sm:flex-row justify-between items-center">
+        <p>Created & Developed by <b>Tattvo Tech</b></p>
+        <p>© <span id="year"></span> Lush Layers — Crafted with care.</p>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- Inline JS: mobile toggle + carousel + small fixes (from index.html) -->
+<script>
+  (function () {
+    /* --- Simple carousel (auto-play + arrows) --- */
+    const carousel = document.querySelector('.carousel');
+    if (carousel) {
+      const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+      const prevBtn = carousel.querySelector('.carousel-arrow.left');
+      const nextBtn = carousel.querySelector('.carousel-arrow.right');
+      let idx = slides.findIndex(s => s.classList.contains('active'));
+      if (idx < 0) idx = 0;
+
+      function showSlide(n) {
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === n);
+          // ensure only the active slide is visible (tailwind classes assumed; fallback)
+          if (i === n) {
+            s.style.display = '';
+            s.setAttribute('aria-hidden', 'false');
+          } else {
+            s.style.display = 'none';
+            s.setAttribute('aria-hidden', 'true');
+          }
+        });
+      }
+
+      showSlide(idx);
+
+      function next() {
+        idx = (idx + 1) % slides.length;
+        showSlide(idx);
+      }
+      function prev() {
+        idx = (idx - 1 + slides.length) % slides.length;
+        showSlide(idx);
+      }
+
+      let autoplay = setInterval(next, 3500);
+
+      // arrow handlers
+      if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
+      if (prevBtn) prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
+
+      // pause on hover/focus
+      carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+      carousel.addEventListener('mouseleave', () => autoplay = setInterval(next, 3500));
+      carousel.addEventListener('focusin', () => clearInterval(autoplay));
+      carousel.addEventListener('focusout', () => autoplay = setInterval(next, 3500));
+
+      function resetAutoplay() {
+        clearInterval(autoplay);
+        autoplay = setInterval(next, 3500);
+      }
+    }
+
+    /* --- small util: set current year in footer --- */
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  })();
+</script>
+
+<!-- If you still use app.js, keep it — this script is intentionally lightweight and won't interfere in most setups -->
+<script src="app.js"></script>
+</body>
+</html>
